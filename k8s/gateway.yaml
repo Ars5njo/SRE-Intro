@@ -34,7 +34,7 @@ spec:
         - name: ghcr-secret
       containers:
         - name: gateway
-          image: ghcr.io/ars5njo/quickticket-gateway:cf2ad63f3d3d56546c3bd5a18b09867ffb74b200
+          image: ghcr.io/ars5njo/quickticket-gateway:5fc554f7c251e24c9b368746084338b305b1bd22
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
