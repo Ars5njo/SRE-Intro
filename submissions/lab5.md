@@ -40,9 +40,18 @@ Result: success
 GitHub Actions run:
 
 ```text
-Not yet available in this working copy: the workflow triggers on push to main.
-GitHub connector check for commit cf2ad63f3d3d56546c3bd5a18b09867ffb74b200 returned no workflow runs.
-After merging/pushing this branch to main, use the green run URL here.
+https://github.com/Ars5njo/SRE-Intro/actions/runs/27937773107
+
+Job: build
+Status: completed
+Conclusion: success
+
+Successful steps:
+- Resolve image owner
+- Log in to GitHub Container Registry
+- Build and push service images
+- Update image tags in manifests
+- Commit and push manifest update
 ```
 
 ### 5.2 GHCR images
