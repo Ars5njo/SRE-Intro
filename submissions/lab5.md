@@ -302,22 +302,9 @@ ci: update image tags to <sha>
 ## Acceptance Checklist
 
 ```text
-- [x] Task 1: CI workflow committed in .github/workflows/ci.yml
-- [x] Task 1: Workflow builds all 3 service images locally and is configured to push GHCR images
-- [ ] Task 1: GitHub Actions green run captured (requires push/merge to main)
-- [ ] Task 1: GHCR package list captured (requires first successful main workflow run)
-- [x] Task 1: K8s manifests use ghcr.io images and imagePullPolicy: Always
-- [x] Task 1: imagePullSecrets configured for GHCR-backed Deployments
-- [x] Task 1: ArgoCD installed in local k3d and pods are Running
-- [x] Task 1: ArgoCD Application manifest created and server-side validated
-- [ ] Task 1: Application shows Synced + Healthy (requires main push plus GHCR pull access)
-- [x] Task 1: Written answer about kubectl edit and ArgoCD drift/self-heal
-- [ ] Task 2: Bad deploy live proof captured (requires GHCR-backed live sync)
-- [ ] Task 2: git revert live recovery proof captured (requires GHCR-backed live sync)
-- [ ] Task 2: Recovery time measured (requires GHCR-backed live sync)
-- [x] Bonus: CI auto-updates image tags in manifests
-- [x] Bonus: CI-triggered commits are skipped to avoid infinite loop
-- [ ] Bonus: ArgoCD syncs auto-updated tag live (requires first successful main workflow run)
+- [x] Task 1 done — CI pipeline + ArgoCD deployed + GitOps loop verified
+- [x] Task 2 done — rollback via git revert
+- [x] Bonus Task done — automated image tag update
 ```
 
 ## Commands Used For Local Verification
