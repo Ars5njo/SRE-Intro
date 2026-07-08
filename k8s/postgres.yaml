@@ -36,6 +36,18 @@ data:
     ON CONFLICT DO NOTHING;
 ---
 apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-data
+  labels:
+    app: postgres
+spec:
+  accessModes: [ReadWriteOnce]
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
 kind: Service
 metadata:
   name: postgres
@@ -79,6 +91,8 @@ spec:
               value: quickticket
             - name: POSTGRES_PASSWORD
               value: quickticket
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
           readinessProbe:
             exec:
               command: ["pg_isready", "-U", "quickticket"]
@@ -104,7 +118,8 @@ spec:
               subPath: 01-seed.sql
       volumes:
         - name: postgres-data
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: postgres-data
         - name: postgres-init
           configMap:
             name: postgres-init
